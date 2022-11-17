@@ -1,4 +1,8 @@
 import * as express from 'express';
+import loginRouter from './routes/login.router';
+// import teamsRouter from './routes/teams.router';
+// import matchesRouter from './routes/matches.router';
+// import leaderboardsRouter from './routes/leaderboards.router';
 
 class App {
   public app: express.Express;
@@ -10,6 +14,7 @@ class App {
 
     // Não remover essa rota
     this.app.get('/', (req, res) => res.json({ ok: true }));
+    this.routes();
   }
 
   private config():void {
@@ -24,6 +29,13 @@ class App {
     this.app.use(accessControl);
   }
 
+  private routes(): void {
+    this.app.use(loginRouter);
+    // this.app.use(teamsRouter);
+    // this.app.use(matchesRouter);
+    // this.app.use(leaderboardsRouter);
+  }
+
   public start(PORT: string | number):void {
     this.app.listen(PORT, () => console.log(`Running on port ${PORT}`));
   }
@@ -33,4 +45,3 @@ export { App };
 
 // A execução dos testes de cobertura depende dessa exportação
 export const { app } = new App();
-// iniciando projeto
