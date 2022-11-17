@@ -1,10 +1,10 @@
-// import { Router } from 'express';
-// import TeamsController from '../controllers/TeamsController';
+import { Router } from 'express';
+import TeamsController from '../controllers/TeamsController';
 
-// const teamsRouter = Router();
-// const teamsController = new TeamsController();
+const teamsRouter = Router();
+const teamsController = new TeamsController();
 
-// teamsController.get('/teams', teamsController.getAll);
-// teamsController.get('/teams/:id', teamsController.getByPk);
+teamsRouter.get('/teams', teamsController.getAll);
+teamsRouter.get('/teams/:id', teamsController.getByPk);
 
-// export default teamsRouter;
+export default teamsRouter;
