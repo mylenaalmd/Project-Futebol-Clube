@@ -1,4 +1,4 @@
-import * as bscryptjs from 'bcryptjs';
+import * as bcryptjs from 'bcryptjs';
 import ILoginResponse from '../interfaces/ILoginResponse';
 import { tokenGenerator } from '../helpers/JWT';
 import IUserLogin from '../interfaces/IUserLogin';
@@ -14,7 +14,9 @@ class LoginService {
   public login = async (body: IUserLogin): Promise<ILoginResponse> => {
     const { email, password } = body;
     const findUser = await Users.findOne({ where: { email } });
-    if (findUser && bscryptjs.compareSync(password, findUser.password)) {
+    console.log(findUser);
+    console.log(password);
+    if (findUser && bcryptjs.compareSync(password, findUser.password)) {
       const payload = {
         id: findUser.id,
         role: findUser.role,
