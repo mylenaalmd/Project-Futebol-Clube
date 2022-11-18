@@ -14,8 +14,8 @@ class LoginService {
   public login = async (body: IUserLogin): Promise<ILoginResponse> => {
     const { email, password } = body;
     const findUser = await Users.findOne({ where: { email } });
-    console.log(findUser);
-    console.log(password);
+    // console.log(findUser);
+    // console.log(password);
     if (findUser && bcryptjs.compareSync(password, findUser.password)) {
       const payload = {
         id: findUser.id,

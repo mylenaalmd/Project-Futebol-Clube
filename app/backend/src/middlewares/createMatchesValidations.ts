@@ -11,7 +11,7 @@ const createMatchesValidations = async (req: Request, res: Response, next: NextF
   const fAwayTeam = await Teams.findByPk(awayTeam);
 
   if (!fHomeTeam || !fAwayTeam) {
-    const message = 'There is no team with such id';
+    const message = 'There is no team with such id!';
     return res.status(404).json({ message });
   }
   next();
