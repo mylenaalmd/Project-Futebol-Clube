@@ -34,7 +34,7 @@ describe('Testes Matches', ()=>{
     expect(chaiHttpResponse.body).to.have.length(40);
   })
   it('Verifica se a rota POST adiciona partida em progresso', async ()=> {
-    const chaiHttpResponse = await chai.request(app).get('/matches/41').send({
+    const chaiHttpResponse = await chai.request(app).patch('/matches/41').send({
       homeTeamGoals: 2,
       awayTeamGoals: 2,
     });
