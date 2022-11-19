@@ -13,7 +13,7 @@ matchesRouter.post(
   tokenValidation,
   matchesController.createMatch,
 );
-matchesRouter.patch('matches/:id', matchesController.updateMatch);
+matchesRouter.patch('/matches/:id', matchesController.updateMatch);
 matchesRouter.patch('/matches/:id/finish', matchesController.updateProgress);
 
 export default matchesRouter;
